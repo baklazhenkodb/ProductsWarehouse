@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace ProductList
 {
@@ -12,17 +14,26 @@ namespace ProductList
     /// </summary>
     /// <param name="ProductDate">Date of product manufacture</param>
     /// <param name="ExpirDate">Number of days from production date until the expiration</param>
-    class Product:  Goods
+    
+    [Serializable]
+    public class Product:  Goods
     {
-        DateTime ProductDate;
-        DateTime ExpirDate;
+       public DateTime ProductDate;
+       public DateTime ExpirDate;
  
+        public Product()
+            :base("",0)
+        {
+
+        }
         public Product(DateTime productdate,int expirdays, string name, decimal sum)
             :base(name,sum)
         {
             ProductDate = productdate;
             ExpirDate = ProductDate.AddDays(expirdays);
         }
+
+        
         /// <summary>
         /// Display method return string with 
         /// information about product - its level-aggregated down hiearachy of classes

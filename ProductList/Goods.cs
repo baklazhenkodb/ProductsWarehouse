@@ -12,10 +12,10 @@ namespace ProductList
     /// </summary>
     /// <param name="Name">Name of this object</param>
     /// <param name="Sum">Price of current object</param>
-    internal abstract  class Goods
+    public abstract  class Goods
     {
-        string Name { get; set; }
-        decimal Sum { get; set; }
+        public string Name { get; set; }
+        public decimal Sum { get; set; }
 
         public Goods(string name, decimal sum)
         {
